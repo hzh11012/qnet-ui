@@ -1,0 +1,7 @@
+/.vscode
+/esm
+/lib
+/doc-site
+.umi
+.umi-production
+/node_modules

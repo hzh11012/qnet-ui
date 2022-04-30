@@ -1,0 +1,69 @@
+.demo-color-card {
+  display: block;
+  background: $body-background;
+  border-radius: $border-radius-small;
+  font-size: $font-size-base;
+  position: relative;
+  transition: all $transition-time $ease-in-out;
+
+  &-body {
+    padding: $padding-md;
+  }
+
+  &:hover {
+    box-shadow: $shadow-base;
+    border-color: #eee;
+  }
+
+  &-name {
+    color: $white;
+    font-size: $font-size-large;
+  }
+
+  &-desc {
+    color: $white;
+    opacity: 0.7;
+  }
+
+  .dark {
+    color: #657180;
+  }
+}
+
+.demo-color-table {
+  font-size: $font-size-small;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  border: 1px solid #e9e9e9;
+  width: 100%;
+  margin-bottom: $margin-lg;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif;
+
+  &-thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+  }
+
+  &-tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+  }
+
+  &-th {
+    background: #f7f7f7;
+    white-space: nowrap;
+    color: #5c6b77;
+    font-weight: 600;
+  }
+
+  &-td,
+  &-th {
+    border: 1px solid #e9e9e9;
+    padding: $padding-xs $padding-md;
+    text-align: left;
+  }
+}

@@ -1,0 +1,17 @@
+@use 'sass:math';
+$row-prefix-cls: $css-prefix + 'row';
+$col-prefix-cls: $css-prefix + 'col';
+
+@for $i from 1 through $grid-columns {
+  .#{$col-prefix-cls}-span-#{$i} {
+    display: block;
+    flex: 0 0 math.div($i, $grid-columns) * 100%;
+    max-width: math.div($i, $grid-columns) * 100%;
+  }
+}
+
+@for $i from 0 through 0 {
+  .#{$col-prefix-cls}-span-#{$i} {
+    display: none;
+  }
+}
