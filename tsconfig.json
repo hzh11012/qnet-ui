@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "target": "esnext",
     "paths": {
       "qnet-ui": ["src/index"]
     },

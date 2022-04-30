@@ -2,19 +2,20 @@
 title: Qnet UI
 hero:
   title: Qnet UI
-  desc: 文档站点基于 dumi 生成
+  image: https://ftp.qnets.cn/qnetui/ziran.png
+  desc: 开箱即用的高质量 React UI 组件库
   actions:
-    - text: 快速上手
-      link: /getting-started
+    - text: 立即使用
+      link: /components/color
 features:
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/881dc458-f20b-407b-947a-95104b5ec82b/k79dm8ih_w144_h144.png
-    title: 特性 1
-    desc: Balabala
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d60657df-0822-4631-9d7c-e7a869c2f21c/k79dmz3q_w126_h126.png
-    title: 特性 2
-    desc: Balabala
-  - icon: https://gw.alipayobjects.com/zos/bmw-prod/d1ee0c6f-5aed-4a45-a507-339a4bfe076c/k7bjsocq_w144_h144.png
-    title: 特性 3
-    desc: Balabala
-footer: Open-source MIT Licensed | Copyright © 2022<br />Powered by [dumi](https://d.umijs.org)
+  - icon: https://ftp.qnets.cn/qnetui/quedingxing.png
+    title: 确定性
+    desc: 界面是用户与系统交互的媒介，是手段而非目的
+  - icon: https://ftp.qnets.cn/qnetui/yiyigan.png
+    title: 意义感
+    desc: 一个产品或功能被设计者创造出来不只是用户的需要，而更多是承载用户的某个工作使命
+  - icon: https://ftp.qnets.cn/qnetui/shengzhangxing.png
+    title: 生长性
+    desc: 企业级产品功能的增长与用户系统角色的演变相生相伴
+footer: Copyright © 2022<br />Powered by Qnet
 ---

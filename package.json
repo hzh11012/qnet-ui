@@ -28,7 +28,8 @@
   ],
   "sideEffects": [
     "esm/**/style/*",
-    "lib/**/style/*"
+    "lib/**/style/*",
+    "*.scss"
   ],
   "license": "ISC",
   "devDependencies": {
