@@ -24,6 +24,12 @@ module.exports = function (plop) {
         templateFile: path.resolve(__dirname, '../templates/style.hbs')
       },
       {
+        type: 'append',
+        path: path.resolve(__dirname, '../src/styles/index.scss'),
+        pattern: '/* PLOP_INJECT_EXPORT */',
+        templateFile: path.resolve(__dirname, '../templates/styles.hbs')
+      },
+      {
         type: 'add',
         path: path.resolve(__dirname, '../src/{{kebabCase name}}/index.md'),
         templateFile: path.resolve(__dirname, '../templates/doc.hbs')

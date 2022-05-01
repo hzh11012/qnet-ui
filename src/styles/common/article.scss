@@ -33,16 +33,16 @@
     font-size: 14px;
   }
 
-  ul:not([class^='ivu-']) {
+  ul:not([class^='qnet-']) {
     padding-left: 40px;
     list-style-type: disc;
   }
-  li:not([class^='ivu-']) {
+  li:not([class^='qnet-']) {
     margin-bottom: 5px;
     font-size: 14px;
   }
-  ul ul:not([class^='ivu-']),
-  ol ul:not([class^='ivu-']) {
+  ul ul:not([class^='qnet-']),
+  ol ul:not([class^='qnet-']) {
     list-style-type: circle;
   }
 
@@ -51,7 +51,7 @@
     font-size: 14px;
   }
 
-  a:not([class^='ivu-'])[target='_blank']:after {
+  a:not([class^='qnet-'])[target='_blank']:after {
     content: '\F3F2';
     font-family: Ionicons;
     color: #aaa;

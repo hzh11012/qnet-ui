@@ -9,7 +9,7 @@ const paths = {
     lib: 'lib', // commonjs 文件存放的目录名
     esm: 'esm' // ES module 文件存放的目录名
   },
-  // styles: ['src/**/*.scss', '!src/**/demo/*.scss'], // 样式文件路径
+  styles: ['src/styles/index.scss'], // 样式文件路径
   scripts: ['src/**/*.{ts,tsx}', '!src/**/demo/*.{ts,tsx}'] // 脚本文件路径
 };
 
@@ -45,22 +45,12 @@ function compileESM() {
 }
 
 /**
- * 拷贝Scss文件
- */
-// function copyScss() {
-//   return gulp
-//     .src(paths.styles)
-//     .pipe(gulp.dest(paths.dest.lib))
-//     .pipe(gulp.dest(paths.dest.esm));
-// }
-
-/**
  * 生成css文件
  */
 function Scss2css() {
   return gulp
-    .src('src/styles/index.scss')
-    .pipe(sass().on('error', sass.logError)) // 处理scss文件
+    .src(paths.styles)
+    .pipe(sass()) // 处理scss文件
     .pipe(autoprefixer()) // 根据browserslistrc增加前缀
     .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
     .pipe(gulp.dest(paths.dest.lib))
