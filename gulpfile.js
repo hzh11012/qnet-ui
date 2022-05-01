@@ -1,12 +1,15 @@
 const gulp = require('gulp');
 const babel = require('gulp-babel');
+const sass = require('gulp-sass')(require('sass'));
+const autoprefixer = require('gulp-autoprefixer');
+const cssnano = require('gulp-cssnano');
 
 const paths = {
   dest: {
     lib: 'lib', // commonjs 文件存放的目录名
     esm: 'esm' // ES module 文件存放的目录名
   },
-  styles: ['src/**/*.scss', '!src/**/demo/*.scss'], // 样式文件路径
+  // styles: ['src/**/*.scss', '!src/**/demo/*.scss'], // 样式文件路径
   scripts: ['src/**/*.{ts,tsx}', '!src/**/demo/*.{ts,tsx}'] // 脚本文件路径
 };
 
@@ -44,9 +47,22 @@ function compileESM() {
 /**
  * 拷贝Scss文件
  */
-function copyScss() {
+// function copyScss() {
+//   return gulp
+//     .src(paths.styles)
+//     .pipe(gulp.dest(paths.dest.lib))
+//     .pipe(gulp.dest(paths.dest.esm));
+// }
+
+/**
+ * 生成css文件
+ */
+function Scss2css() {
   return gulp
-    .src(paths.styles)
+    .src('src/styles/index.scss')
+    .pipe(sass().on('error', sass.logError)) // 处理scss文件
+    .pipe(autoprefixer()) // 根据browserslistrc增加前缀
+    .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
     .pipe(gulp.dest(paths.dest.lib))
     .pipe(gulp.dest(paths.dest.esm));
 }
@@ -55,7 +71,7 @@ function copyScss() {
 const buildScripts = gulp.series(compileCJS, compileESM);
 
 // 整体并行执行任务
-const build = gulp.parallel(buildScripts, copyScss);
+const build = gulp.parallel(buildScripts, Scss2css);
 
 exports.build = build;
 
