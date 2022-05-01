@@ -11,7 +11,7 @@ const paths = {
     esm: 'esm' // ES module 文件存放的目录名
   },
   styles: ['src/styles/index.scss'], // css样式文件路径
-  scssStyles: ['src/**/*.scss', '!src/**/demo/*.scss', '!src/**/index.scss'], // scss样式文件路径
+  scssStyles: ['src/**/*.scss', '!src/**/demo/*.scss'], // scss样式文件路径
   scripts: ['src/**/*.{ts,tsx}', '!src/**/demo/*.{ts,tsx}'] // 脚本文件路径
 };
 
@@ -52,7 +52,6 @@ function compileESM() {
 function concatScss() {
   return gulp
     .src(paths.scssStyles)
-    .pipe(concat('index.scss'))
     .pipe(gulp.dest(paths.dest.lib))
     .pipe(gulp.dest(paths.dest.esm));
 }
@@ -66,8 +65,8 @@ function Scss2css() {
     .pipe(sass()) // 处理scss文件
     .pipe(autoprefixer()) // 根据browserslistrc增加前缀
     .pipe(cssnano({ zindex: false, reduceIdents: false })) // 压缩
-    .pipe(gulp.dest(paths.dest.lib))
-    .pipe(gulp.dest(paths.dest.esm));
+    .pipe(gulp.dest(paths.dest.lib + '/styles'))
+    .pipe(gulp.dest(paths.dest.esm + '/styles'));
 }
 
 // 串行执行编译脚本任务（cjs,esm） 避免环境变量影响

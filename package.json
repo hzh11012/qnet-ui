@@ -1,6 +1,6 @@
 {
   "name": "qnet-ui",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A React UI Library.",
   "typings": "lib/index.d.ts",
   "main": "lib/index.js",
