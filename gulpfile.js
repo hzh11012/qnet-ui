@@ -3,13 +3,15 @@ const babel = require('gulp-babel');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
+const concat = require('gulp-concat');
 
 const paths = {
   dest: {
     lib: 'lib', // commonjs 文件存放的目录名
     esm: 'esm' // ES module 文件存放的目录名
   },
-  styles: ['src/styles/index.scss'], // 样式文件路径
+  styles: ['src/styles/index.scss'], // css样式文件路径
+  scssStyles: ['src/**/*.scss', '!src/**/demo/*.scss', '!src/**/index.scss'], // scss样式文件路径
   scripts: ['src/**/*.{ts,tsx}', '!src/**/demo/*.{ts,tsx}'] // 脚本文件路径
 };
 
@@ -45,6 +47,17 @@ function compileESM() {
 }
 
 /**
+ * 生成scss文件
+ */
+function concatScss() {
+  return gulp
+    .src(paths.scssStyles)
+    .pipe(concat('index.scss'))
+    .pipe(gulp.dest(paths.dest.lib))
+    .pipe(gulp.dest(paths.dest.esm));
+}
+
+/**
  * 生成css文件
  */
 function Scss2css() {
@@ -61,7 +74,7 @@ function Scss2css() {
 const buildScripts = gulp.series(compileCJS, compileESM);
 
 // 整体并行执行任务
-const build = gulp.parallel(buildScripts, Scss2css);
+const build = gulp.parallel(buildScripts, concatScss, Scss2css);
 
 exports.build = build;
 
