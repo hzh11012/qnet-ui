@@ -1,3 +1,5 @@
+@import '../../../src/styles/index.scss';
+
 .demo-color-card {
   display: block;
   background: $body-background;
@@ -11,7 +13,7 @@
   }
 
   &:hover {
-    box-shadow: $shadow-base;
+    box-shadow: $shadow-card;
     border-color: #eee;
   }
 
@@ -38,8 +40,7 @@
   border: 1px solid #e9e9e9;
   width: 100%;
   margin-bottom: $margin-lg;
-  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
-    Microsoft YaHei, \\5FAE\8F6F\96C5\9ED1, Arial, sans-serif;
+  font-family: $font-family;
 
   &-thead {
     display: table-header-group;

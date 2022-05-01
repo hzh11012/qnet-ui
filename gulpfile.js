@@ -6,7 +6,7 @@ const paths = {
     lib: 'lib', // commonjs 文件存放的目录名
     esm: 'esm' // ES module 文件存放的目录名
   },
-  styles: 'src/**/*.scss', // 样式文件路径
+  styles: ['src/**/*.scss', '!src/**/demo/*.scss'], // 样式文件路径
   scripts: ['src/**/*.{ts,tsx}', '!src/**/demo/*.{ts,tsx}'] // 脚本文件路径
 };
 
@@ -16,7 +16,7 @@ const paths = {
  * @param {string} destDir 目标目录
  */
 function compileScripts(babelEnv, destDir) {
-  const {scripts} = paths;
+  const { scripts } = paths;
   // 设置环境变量
   process.env.BABEL_ENV = babelEnv;
   return gulp
@@ -29,7 +29,7 @@ function compileScripts(babelEnv, destDir) {
  * 编译cjs
  */
 function compileCJS() {
-  const {dest} = paths;
+  const { dest } = paths;
   return compileScripts('cjs', dest.lib);
 }
 
@@ -37,7 +37,7 @@ function compileCJS() {
  * 编译esm
  */
 function compileESM() {
-  const {dest} = paths;
+  const { dest } = paths;
   return compileScripts('esm', dest.esm);
 }
 

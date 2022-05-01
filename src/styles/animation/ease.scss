@@ -1,0 +1,23 @@
+.ease-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.ease-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: transform $animation-in-time $ease-out,
+    opacity $animation-in-time $ease-in-out;
+}
+
+.ease-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.ease-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform $animation-out-time $ease-out,
+    opacity $animation-out-time $ease-in-out;
+}

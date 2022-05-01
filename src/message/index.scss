@@ -1,0 +1,41 @@
+.#{$css-prefix}message-wrapper {
+  position: fixed;
+  z-index: $zindex-message;
+  width: 100%;
+  top: $margin-xs;
+  left: 0;
+  pointer-events: none;
+}
+.#{$css-prefix}message {
+  text-align: center;
+  margin: $margin-xs auto;
+
+  &-content {
+    display: inline-block;
+    padding: $padding-sm $padding-md;
+    background: $white;
+    border-radius: $border-radius-small;
+    box-shadow: $shadow-card;
+    pointer-events: all;
+
+    &-text {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &-icon,
+  &-close,
+  &-text {
+    display: flex;
+    align-items: center;
+  }
+
+  &-icon {
+    margin-right: $margin-xs;
+  }
+
+  &-close {
+    margin-left: $margin-md;
+  }
+}

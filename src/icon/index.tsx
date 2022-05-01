@@ -1,25 +1,25 @@
 import React from 'react';
 import t from 'prop-types';
-import '../styles/index.scss';
+import classnames from 'classnames';
 
 export interface IconProps {
   type: string;
-  size?: number;
+  size?: number | string;
   color?: string;
-  onClick?: React.MouseEventHandler;
+  onClick?: () => void;
 }
 
 const Icon: React.FC<IconProps> = ({ type, size, color, onClick }) => {
   const styles = () => {
     return {
-      fontSize: size,
+      fontSize: `${size}px`,
       color: color,
       cursor: onClick ? 'pointer' : undefined
     };
   };
   return (
     <i
-      className={`qnet-icon qnet-icon-${type}`}
+      className={classnames('qnet-icon', `qnet-icon-${type}`)}
       style={styles()}
       onClick={onClick}
     ></i>
@@ -28,7 +28,7 @@ const Icon: React.FC<IconProps> = ({ type, size, color, onClick }) => {
 
 Icon.propTypes = {
   type: t.string.isRequired,
-  size: t.number,
+  size: t.oneOfType([t.number, t.string]),
   color: t.string,
   onClick: t.func
 };

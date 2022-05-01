@@ -1,0 +1,58 @@
+.slide-in-top-enter {
+  opacity: 0;
+  transform: translateY(-100%);
+}
+
+.slide-in-top-enter-active,
+.slide-in-bottom-enter-active {
+  opacity: 1;
+  transform: translate(0);
+  transition: transform $animation-in-time $ease-out,
+    opacity $animation-in-time $ease-in-out;
+}
+
+.slide-in-top-exit,
+.slide-in-bottom-exit,
+.slide-in-right-exit,
+.slide-in-left-exit {
+  opacity: 1;
+}
+
+.slide-in-top-exit-active,
+.slide-in-bottom-exit-active {
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: transform $animation-out-time $ease-out,
+    opacity $animation-out-time $ease-in-out;
+}
+
+.slide-in-bottom-enter {
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.slide-in-right-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+
+.slide-in-left-enter {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.slide-in-right-enter-active,
+.slide-in-left-enter-active {
+  opacity: 1;
+  transform: translate(0);
+  transition: transform $animation-in-time $ease-out,
+    opacity $animation-in-time $ease-in-out;
+}
+
+.slide-in-right-exit-active,
+.slide-in-left-exit-active {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: transform $animation-out-time $ease-out,
+    opacity $animation-out-time $ease-in-out;
+}

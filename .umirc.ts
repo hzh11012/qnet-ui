@@ -1,4 +1,5 @@
 import { defineConfig } from 'dumi';
+import path from 'path';
 
 export default defineConfig({
   title: 'Qnet UI',
@@ -18,5 +19,10 @@ export default defineConfig({
     .__dumi-default-layout-hero {
       background: url(https://ftp.qnets.cn/qnetui/bg.png) no-repeat 100% / cover !important;
     }`
-  ]
+  ],
+  sass: {
+    sassOptions: {
+      sourceMap: true
+    }
+  }
 });

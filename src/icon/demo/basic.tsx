@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Icon } from 'qnet-ui';
+import { Icon, Message } from 'qnet-ui';
 import './basic.scss';
 import copyCot from '../../utils/copyCot';
 
@@ -736,8 +736,15 @@ const Icons: React.FC<IconsProps> = ({ iconList }) => {
           key={item + index}
           className="icons-item"
           onClick={() => {
-            copyCot(`<Icon type="${item}" />`);
-            alert('组件代码已经复制到剪贴板');
+            Message.success({
+              key: 'copySuccess',
+              content: '组件代码已经复制到剪贴板',
+              onClick: () => {
+                copyCot(`<Icon type="${item}" />`);
+              },
+              closable: true,
+              duration: 1500
+            });
           }}
         >
           <Icon type={item} size={32} />
